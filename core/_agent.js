@@ -1,91 +1,13 @@
 📦
-519 /agent/index.js.map
-415 /agent/index.js
-2101 /agent/process.js.map
-2152 /agent/process.js
+393 /agent/index.js.map
+130 /agent/index.js
+1691 /agent/process.js.map
+1088 /agent/process.js
 ✄
-{"version":3,"file":"index.js","sourceRoot":"C:/Users/lucho/Documents/fridheat-engine/core2/","sources":["agent/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAc,WAAW,EAAE,MAAM,cAAc,CAAA;AACtD,OAAO,CAAC,GAAG,CAAC,kBAAkB,CAAC,CAAA;AAC/B;;;;;EAKE;AAEF,IAAI,WAAW,GAAG,IAAI,WAAW,EAAE,CAAA;AACnC,WAAW,CAAC,gBAAgB,CAAC,qBAAqB,CAAC,CAAA;AACnD,MAAM,gBAAgB,GAAiB,WAAW,CAAC,aAAa,EAAE,CAAA;AAClE,gBAAgB,CAAC,OAAO,CAAC,CAAC,UAAU,EAAE,EAAE;IACpC,UAAU,CAAC,aAAa,EAAE,CAAA;AAC9B,CAAC,CAAC,CAAA;AAEF,OAAO,CAAC,GAAG,CAAC,WAAW,CAAC,CAAA"}
+{"version":3,"file":"index.js","names":["console","log","variable","rpc","exports","readVariable","writeVariable","my_number"],"sourceRoot":"/Users/cesarrodriguez/Documents/advanced-android/fridheat-engine/core/agent/","sources":["index.ts"],"mappings":"AACAA,QAAQC,IAAI,oBAgBZ,IAAIC,EAAmB,EAEvBC,IAAIC,QAAU,CACVC,aAAc,IAAuBH,EACrCI,cAAgBC,IAAwBL,EAAWK,CAAS,GAEhEP,QAAQC,IAAI","ignoreList":[]}
 ✄
-import { MemoryPages } from "./process.js";
-console.log("printing results");
-/*
-No test now
-memoryPages.forEach((memoryPage) => {
-    memoryPage.displayConfig()
-})
-*/
-let memoryPages = new MemoryPages();
-memoryPages.filterByFilename("mynativeapplication");
-const validMemoryPages = memoryPages.getValidPages();
-validMemoryPages.forEach((memoryPage) => {
-    memoryPage.displayConfig();
-});
-console.log("termino 5");
+console.log("printing results");let e=5;rpc.exports={readVariable:()=>e,writeVariable:r=>{e=r}},console.log("termino 5");export{};
 ✄
-{"version":3,"file":"process.js","sourceRoot":"C:/Users/lucho/Documents/fridheat-engine/core2/","sources":["agent/process.ts"],"names":[],"mappings":"AAAA,MAAM,OAAO,UAAU;IAInB,YAAY,YAA0B,EAAE,SAAkB;QACtD,IAAI,CAAC,YAAY,GAAG,YAAY,CAAC;QACjC,IAAI,CAAC,OAAO,GAAG,SAAS,CAAC;IAC7B,CAAC;IAED,wCAAwC;IACjC,aAAa;QAChB,IAAI,CAAC,OAAO,GAAG,CAAC,IAAI,CAAC,OAAO,CAAC;IACjC,CAAC;IAEM,UAAU,CAAC,OAAgB;QAC9B,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;IAEM,SAAS;QACZ,OAAO,IAAI,CAAC,OAAO,CAAA;IACvB,CAAC;IACM,WAAW;QACd,IAAI,SAAS,GAAG,EAAE,CAAA;QAClB,IAAI,IAAI,CAAC,YAAY,CAAC,IAAI,EAAE,IAAI,EAAE;YAC9B,SAAS,GAAG,IAAI,CAAC,YAAY,CAAC,IAAI,CAAC,IAAI,CAAC;SAC3C;QACD,OAAO,SAAS,CAAA;IACpB,CAAC;IAEM,OAAO;QACV,OAAO,IAAI,CAAC,YAAY,CAAC,IAAI,CAAA;IACjC,CAAC;IAED,8CAA8C;IAC9C,aAAa;QAET,OAAO,CAAC,GAAG,CAAC,WAAW,IAAI,CAAC,WAAW,EAAE,MAAM,IAAI,CAAC,YAAY,CAAC,IAAI,MAAM,IAAI,CAAC,YAAY,CAAC,IAAI,MAAM,IAAI,CAAC,YAAY,CAAC,UAAU,eAAe,IAAI,CAAC,OAAO,EAAE,CAAC,CAAC;IACtK,CAAC;CACJ;AAED,MAAM,OAAO,WAAW;IAIpB;QAFQ,gBAAW,GAAiB,EAAE,CAAA;QAGlC,IAAI,MAAM,GAAmB,OAAO,CAAC,eAAe,CAAC,KAAK,CAAC,CAAA;QAE3D,MAAM,CAAC,OAAO,CAAC,CAAC,KAAK,EAAE,EAAE;YACrB,IAAI,CAAC,WAAW,CAAC,IAAI,CAAC,IAAI,UAAU,CAAC,KAAK,EAAE,IAAI,CAAC,CAAC,CAAA;QACtD,CAAC,CAAC,CAAA;IACN,CAAC;IAED,4CAA4C;IACrC,gBAAgB,CAAC,SAAiB;QAErC,IAAI,CAAC,WAAW,CAAC,OAAO,CAAC,CAAC,UAAU,EAAE,EAAE;YACpC,4CAA4C;YAC5C,UAAU,CAAC,UAAU,CAAC,UAAU,CAAC,WAAW,EAAE,CAAC,QAAQ,CAAC,SAAS,CAAC,CAAC,CAAA;QACvE,CAAC,CAAC,CAAA;IACN,CAAC;IAED,gDAAgD;IACzC,mBAAmB,CAAC,WAAmB,EAAE,UAAkB;QAC9D,MAAM,aAAa,GAAG,QAAQ,CAAC,WAAW,EAAE,EAAE,CAAC,CAAC;QAChD,MAAM,UAAU,GAAG,QAAQ,CAAC,UAAU,EAAE,EAAE,CAAC,CAAC;QAE5C,IAAI,CAAC,WAAW,CAAC,OAAO,CAAC,CAAC,UAAU,EAAE,EAAE;YACpC,MAAM,WAAW,GAAG,QAAQ,CAAC,UAAU,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE,EAAE,EAAE,CAAC,CAAC;YAClE,UAAU,CAAC,UAAU,CAAC,WAAW,IAAI,aAAa,IAAI,WAAW,IAAI,UAAU,CAAC,CAAA;QACpF,CAAC,CAAC,CAAA;IACN,CAAC;IAEM,aAAa;QAChB,OAAO,IAAI,CAAC,WAAW,CAAC,MAAM,CAAC,UAAU,CAAC,EAAE;YACxC,OAAO,UAAU,CAAC,SAAS,EAAE,CAAC;QAClC,CAAC,CAAC,CAAC;IACP,CAAC;IAEM,qBAAqB;QACxB,IAAI,CAAC,WAAW,CAAC,OAAO,CAAC,CAAC,UAAU,EAAE,EAAE;YACpC,UAAU,CAAC,aAAa,EAAE,CAAA;QAC9B,CAAC,CAAC,CAAA;IACN,CAAC;CACJ"}
+{"version":3,"file":"process.js","names":["MemoryPage","constructor","rangeDetails","isEnabled","this","enabled","toggleEnabled","setEnabled","getFileName","file_path","file","path","getBase","base","getSize","size","displayConfig","console","log","protection","MemoryPages","memoryPages","Process","enumerateRanges","forEach","range","push","filterByFilename","file_name","memoryPage","includes","filterByMemoryRange","init_memory","end_memory","inicioDecimal","parseInt","finDecimal","baseDecimal","toString","getValidPages","filter","displayAllMemoryPages"],"sourceRoot":"/Users/cesarrodriguez/Documents/advanced-android/fridheat-engine/core/agent/","sources":["process.ts"],"mappings":"OAAM,MAAOA,WAITC,YAAYC,EAA4BC,GACpCC,KAAKF,aAAeA,EACpBE,KAAKC,QAAUF,CACnB,CAGOG,gBACHF,KAAKC,SAAWD,KAAKC,OACzB,CAEOE,WAAWF,GACdD,KAAKC,QAAUA,CACnB,CAEOF,YACH,OAAOC,KAAKC,OAChB,CACOG,cACH,IAAIC,EAAY,GAIhB,OAHIL,KAAKF,aAAaQ,MAAMC,OACxBF,EAAYL,KAAKF,aAAaQ,KAAKC,MAEhCF,CACX,CAEOG,UACH,OAAOR,KAAKF,aAAaW,IAC7B,CAEAC,UACI,OAAOV,KAAKF,aAAaa,IAC7B,CAGAC,gBAEIC,QAAQC,IAAI,WAAWd,KAAKI,mBAAmBJ,KAAKF,aAAaW,UAAUT,KAAKF,aAAaa,UAAUX,KAAKF,aAAaiB,yBAAyBf,KAAKC,UAC3J,SAGE,MAAOe,YAITnB,cAFQG,KAAAiB,YAA4B,GAGHC,QAAQC,gBAAgB,OAE9CC,SAASC,IACZrB,KAAKiB,YAAYK,KAAK,IAAI1B,WAAWyB,GAAO,GAAM,GAE1D,CAGOE,iBAAiBC,GAEpBxB,KAAKiB,YAAYG,SAASK,IAEtBA,EAAWtB,WAAWsB,EAAWrB,cAAcsB,SAASF,GAAW,GAE3E,CAGOG,oBAAoBC,EAAqBC,GAC5C,MAAMC,EAAgBC,SAASH,EAAa,IACtCI,EAAaD,SAASF,EAAY,IAExC7B,KAAKiB,YAAYG,SAASK,IACtB,MAAMQ,EAAcF,SAASN,EAAWjB,UAAU0B,WAAY,IAC9DT,EAAWtB,WAAW8B,GAAeH,GAAiBG,GAAeD,EAAW,GAExF,CAEOG,gBACH,OAAOnC,KAAKiB,YAAYmB,QAAOX,GACpBA,EAAW1B,aAE1B,CAEOsC,wBACHrC,KAAKiB,YAAYG,SAASK,IACtBA,EAAWb,eAAe,GAElC","ignoreList":[]}
 ✄
-export class MemoryPage {
-    constructor(rangeDetails, isEnabled) {
-        this.rangeDetails = rangeDetails;
-        this.enabled = isEnabled;
-    }
-    // Method to toggle the isEnabled status
-    toggleEnabled() {
-        this.enabled = !this.enabled;
-    }
-    setEnabled(enabled) {
-        this.enabled = enabled;
-    }
-    isEnabled() {
-        return this.enabled;
-    }
-    getFileName() {
-        let file_path = "";
-        if (this.rangeDetails.file?.path) {
-            file_path = this.rangeDetails.file.path;
-        }
-        return file_path;
-    }
-    getBase() {
-        return this.rangeDetails.base;
-    }
-    // Method to display the configuration details
-    displayConfig() {
-        console.log(`Range: [${this.getFileName()} - ${this.rangeDetails.base} - ${this.rangeDetails.size} - ${this.rangeDetails.protection}], Enabled: ${this.enabled}`);
-    }
-}
-export class MemoryPages {
-    constructor() {
-        this.memoryPages = [];
-        let ranges = Process.enumerateRanges('r--');
-        ranges.forEach((range) => {
-            this.memoryPages.push(new MemoryPage(range, true));
-        });
-    }
-    // Method to filter memory pages by filename
-    filterByFilename(file_name) {
-        this.memoryPages.forEach((memoryPage) => {
-            //set the value only if the fileName matches
-            memoryPage.setEnabled(memoryPage.getFileName().includes(file_name));
-        });
-    }
-    // Method to filter memory pages by memory range
-    filterByMemoryRange(init_memory, end_memory) {
-        const inicioDecimal = parseInt(init_memory, 16);
-        const finDecimal = parseInt(end_memory, 16);
-        this.memoryPages.forEach((memoryPage) => {
-            const baseDecimal = parseInt(memoryPage.getBase().toString(), 16);
-            memoryPage.setEnabled(baseDecimal >= inicioDecimal && baseDecimal <= finDecimal);
-        });
-    }
-    getValidPages() {
-        return this.memoryPages.filter(memoryPage => {
-            return memoryPage.isEnabled();
-        });
-    }
-    displayAllMemoryPages() {
-        this.memoryPages.forEach((memoryPage) => {
-            memoryPage.displayConfig();
-        });
-    }
-}
+export class MemoryPage{constructor(e,s){this.rangeDetails=e,this.enabled=s}toggleEnabled(){this.enabled=!this.enabled}setEnabled(e){this.enabled=e}isEnabled(){return this.enabled}getFileName(){let e="";return this.rangeDetails.file?.path&&(e=this.rangeDetails.file.path),e}getBase(){return this.rangeDetails.base}getSize(){return this.rangeDetails.size}displayConfig(){console.log(`Range: [${this.getFileName()} - ${this.rangeDetails.base} - ${this.rangeDetails.size} - ${this.rangeDetails.protection}], Enabled: ${this.enabled}`)}}export class MemoryPages{constructor(){this.memoryPages=[],Process.enumerateRanges("r--").forEach((e=>{this.memoryPages.push(new MemoryPage(e,!0))}))}filterByFilename(e){this.memoryPages.forEach((s=>{s.setEnabled(s.getFileName().includes(e))}))}filterByMemoryRange(e,s){const a=parseInt(e,16),t=parseInt(s,16);this.memoryPages.forEach((e=>{const s=parseInt(e.getBase().toString(),16);e.setEnabled(s>=a&&s<=t)}))}getValidPages(){return this.memoryPages.filter((e=>e.isEnabled()))}displayAllMemoryPages(){this.memoryPages.forEach((e=>{e.displayConfig()}))}}

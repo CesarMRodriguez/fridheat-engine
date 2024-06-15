@@ -2,6 +2,8 @@ import frida
 
 from exceptions.frida_client_exceptions import NoProcessLaunchedException
 
+_SCRIPT_FILENAME = 'core/_agent.js'
+
 def on_message(message, data):
     if message['type'] == 'send':
         print(f"[+] {message['payload']}")
@@ -22,12 +24,22 @@ class FridaClient:
         if process_pid == 0:
             raise NoProcessLaunchedException("No launched process")
         self.session = self.device.attach(process_pid)
+        with open(_SCRIPT_FILENAME, 'r') as script_file:
+            self.code = script_file.read()
+
+        script = self.session.create_script(self.code)
+        script.on('message', on_message)
+        script.load()
+        self.added_scripts.append(script)
 
     def _get_pid_by_package_name(self, device, package_name):
         applications = device.enumerate_applications()
         for application in applications:
             if application.identifier == package_name:
                 return application.pid
+
+    def get_rpc_exports(self):
+        return self.added_scripts[0].exports
 
     def add_script(self, js_code: str):
 

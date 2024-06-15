@@ -29,9 +29,14 @@ if __name__ == "__main__":
     });
     """
 
-    frida.add_script(js_code=js_code)
-    frida.add_script(js_code=js_code2)    
+    #frida.add_script(js_code=js_code)
+    #frida.add_script(js_code=js_code2)    
 
+    rpc = frida.get_rpc_exports()
+
+    print(rpc.read_variable())
+    rpc.write_variable(8)
+    print(rpc.read_variable())
     print("[*] Script loaded successfully")
 
     # Keep the script running
