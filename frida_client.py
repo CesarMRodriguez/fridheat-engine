@@ -12,7 +12,35 @@ def on_message(message, data):
 
 class FridaClient:
 
-    def __init__(self, package_name: str):
+    def __init__(self):
+        self.package_name = ''
+
+        #scripts
+        self.added_scripts = []
+
+        #attach frida to application
+        self.device = frida.get_usb_device()
+
+    def get_process_list(self) -> list:
+        processes = self.device.enumerate_processes()
+
+        #Key information PID: {process.pid}, Name: {process.name}
+        return processes
+
+    def attach_to_process_pid(self, pid: int):
+        #scripts
+        self.added_scripts = []
+
+        self.session = self.device.attach(pid)
+        with open(_SCRIPT_FILENAME, 'r', encoding='utf-8') as script_file:
+            self.code = script_file.read()
+
+        script = self.session.create_script(self.code)
+        script.on('message', on_message)
+        script.load()
+        self.added_scripts.append(script)  
+
+    def attach_to_process(self, package_name: str):
         self.package_name = package_name
 
         #scripts
@@ -30,7 +58,7 @@ class FridaClient:
         script = self.session.create_script(self.code)
         script.on('message', on_message)
         script.load()
-        self.added_scripts.append(script)
+        self.added_scripts.append(script)        
 
     def _get_pid_by_package_name(self, device, package_name):
         applications = device.enumerate_applications()

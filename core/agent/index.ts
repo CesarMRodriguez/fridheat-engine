@@ -1,4 +1,4 @@
-import { MemoryPage, MemoryPages } from "./process.js"
+import { memory } from "./process.js";
 console.log("printing results")
 /*
 No test now
@@ -18,7 +18,7 @@ validMemoryPages.forEach((memoryPage) => {
 let variable: number = 5
 
 rpc.exports = {
+    ...memory,
     readVariable: (): number => { return variable },
     writeVariable: (my_number: number) => { variable = my_number }
 }
-console.log("termino 5")

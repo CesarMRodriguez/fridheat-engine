@@ -32,7 +32,7 @@ class MemorySearch {
         return address.readByteArray(4)
     }
 
-    public filter_findings_by_exact_value(value: any) {
+    public filterFindingsByExactValue(value: any) {
         this.findings = this.findings.filter(finding => {
             return finding.readByteArray(4) == value
         })
@@ -85,7 +85,7 @@ class IntMemorySearch extends MemorySearch {
         return address.readInt()
     }
 
-    public filter_findings_by_exact_value(value: any) {
+    public filterFindingsByExactValue(value: any) {
         this.findings = this.findings.filter(finding => {
             let intValue = Number(value);
             if (isNaN(intValue)) {

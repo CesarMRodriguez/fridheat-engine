@@ -4,7 +4,14 @@ from frida_client import FridaClient
 
 if __name__ == "__main__":
 
-    frida = FridaClient("com.advanced.android.testmultibanditserialization")
+    frida = FridaClient()
+
+    processes = frida.get_process_list()
+
+    frida.attach_to_process_pid(3022)
+
+    # for process in processes:
+    #     print(f"PID: {process.pid}, Name: {process.name}")
 
     js_code = """
     var a = 12;
@@ -34,10 +41,13 @@ if __name__ == "__main__":
 
     rpc = frida.get_rpc_exports()
 
-    print(rpc.read_variable())
-    rpc.write_variable(8)
-    print(rpc.read_variable())
+    rpc.start_memory_pages()
+
+    memory_pages = rpc.get_all_memory_pages()
+    for page in memory_pages:
+        print(page)
+         
     print("[*] Script loaded successfully")
 
-    # Keep the script running
-    sys.stdin.read()
+    # # Keep the script running
+    # sys.stdin.read()

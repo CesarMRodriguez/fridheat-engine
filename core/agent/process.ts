@@ -74,15 +74,51 @@ export class MemoryPages {
         })
     }
 
+    public resetActiveMemoryPages(): void {
+        this.memoryPages.forEach((memoryPage) => {
+            memoryPage.setEnabled(true);
+        })
+    }
+
     public getValidPages(): MemoryPage[] {
         return this.memoryPages.filter(memoryPage => {
             return memoryPage.isEnabled();
         });
     }
 
+    public getAllPages(): MemoryPage[] {
+        return this.memoryPages;
+    }
     public displayAllMemoryPages(): void {
         this.memoryPages.forEach((memoryPage) => {
             memoryPage.displayConfig()
         })
     }
+}
+
+let memory_pages: MemoryPages | null = null
+
+export const memory = {
+    // android clipboard
+    startMemoryPages: () => {
+        memory_pages = new MemoryPages();
+    },
+    restartMemoryPages: () => {
+        memory_pages = new MemoryPages();
+    },
+    resetVisibilityMemoryPages: () => {
+        memory_pages?.resetActiveMemoryPages();
+    },
+    getAllMemoryPages: () => {
+        return memory_pages?.getAllPages();
+    },
+    getActiveMemoryPages: () => {
+        return memory_pages?.getValidPages();
+    },
+    filterByFileName: (file_name: string) => {
+        memory_pages?.filterByFilename(file_name);
+    },
+    filterByMemoryRange: (init_memory: string, end_memory: string) => {
+        memory_pages?.filterByMemoryRange(init_memory, end_memory);
+    },
 }
